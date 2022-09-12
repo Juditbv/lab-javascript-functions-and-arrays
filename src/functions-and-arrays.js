@@ -2,8 +2,10 @@
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2) {
     return `The number 1 is bigger, and it's ${num1}`;
-  } else {
+  } else if (num1 < num2) {
     return `The number 2 is bigger, and it's ${num2}`;
+  } else {
+    return null;
   }
 }
 //console.log(maxOfTwoNumbers(4, 2));
@@ -23,6 +25,7 @@ function findLongestWord(wordsArray) {
   let longestWord;
   let maxLength = 0;
 
+  if (wordsArray == 0) return null;
   for (let i = 0; i < wordsArray.length; i++) {
     if (wordsArray[i].length > maxLength) {
       maxLength = wordsArray[i].length;
@@ -31,15 +34,42 @@ function findLongestWord(wordsArray) {
   }
   return longestWord;
 }
-console.log(findLongestWord(words));
+//console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arrayNumbers) {
+  let sumArrayNumbers = 0;
+  for (i = 0; i < arrayNumbers.length; i++) {
+    sumArrayNumbers += arrayNumbers[i];
+  }
+  return sumArrayNumbers;
+}
+//console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+
+function sum(anyArray) {
+  let totalSumItems = 0;
+  if (anyArray == 0) return 0;
+
+  for (let i = 0; i < anyArray.length; i++) {
+    if (typeof anyArray[i] === "number") {
+      totalSumItems += anyArray[i];
+    } else if (typeof anyArray[i] === "string") {
+      totalSumItems += anyArray[i].length;
+    } else if (typeof anyArray[i] === "boolean" || anyArray[i] === "true") {
+      totalSumItems += 1;
+    } else {
+      0;
+    }
+  }
+  return totalSumItems;
+}
+
+//console.log(sum(mixedArr));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers

@@ -15,11 +15,23 @@ const words = [
   "aviator",
   "crocodile",
   "pearl",
-  "orchard",
+  "xipironese",
   "crackpot",
 ];
 
-function findLongestWord() {}
+function findLongestWord(wordsArray) {
+  let longestWord;
+  let maxLength = 0;
+
+  for (let i = 0; i < wordsArray.length; i++) {
+    if (wordsArray[i].length > maxLength) {
+      maxLength = wordsArray[i].length;
+      longestWord = wordsArray[i];
+    }
+  }
+  return longestWord;
+}
+console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];

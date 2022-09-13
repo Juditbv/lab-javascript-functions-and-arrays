@@ -56,14 +56,12 @@ function sum(anyArray) {
   if (anyArray == 0) return 0;
 
   for (let i = 0; i < anyArray.length; i++) {
-    if (typeof anyArray[i] === "number") {
-      totalSumItems += anyArray[i];
-    } else if (typeof anyArray[i] === "string") {
+    if (typeof anyArray[i] === "string") {
       totalSumItems += anyArray[i].length;
-    } else if (typeof anyArray[i] === "boolean" || anyArray[i] === "true") {
+    } else if (anyArray[i] === "true") {
       totalSumItems += 1;
     } else {
-      0;
+      totalSumItems += anyArray[i];
     }
   }
   return totalSumItems;
@@ -106,31 +104,14 @@ function averageWordLength(stringsArray) {
   let avgResult = totalSumLetters / stringsArray.length;
   return avgResult.toFixed();
 }
-//console.log(averageWordLength(wordsArr));
+console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
 function avg(anyMixedArray) {
-  let totalSumItems = 0;
-  if (anyMixedArray == 0) return 0;
-
-  for (let i = 0; i < anyMixedArray.length; i++) {
-    if (typeof anyMixedArray[i] === "number") {
-      totalSumItems += anyMixedArray[i];
-    } else if (typeof anyMixedArray[i] === "string") {
-      totalSumItems += anyMixedArray[i].length;
-    } else if (
-      typeof anyMixedArray[i] === "boolean" ||
-      anyArray[i] === "true"
-    ) {
-      totalSumItems += 1;
-    } else {
-      0;
-    }
-  }
-  return totalSumItems / anyMixedArray.length;
+  return sum(anyMixedArray) / anyMixedArray.length;
 }
 
-//console.log(avg(mixedArr));
+console.log(avg(mixedArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -209,7 +190,7 @@ function howManyTimes(array, wordToCount) {
   return totalAppearancesWord;
 }
 
-console.log(howManyTimes(wordsCount, "matter"));
+//console.log(howManyTimes(wordsCount, "matter"));
 
 // Iteration #8: Bonus
 const matrix = [
@@ -277,7 +258,20 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrixArrays) {
+  let biggestNumberArrayHorizontal = 0;
+  for (let i = 0; i < matrixArrays.length; i++) {
+    for (let n = 0; n < matrixArrays[i].length; n++) {
+      if (matrixArrays[i[n]] > 0) {
+        biggestNumberArrayHorizontal = matrixArrays[i[n]];
+      }
+    }
+  }
+
+  return biggestNumberArrayHorizontal;
+}
+
+greatestProduct(matrix);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */

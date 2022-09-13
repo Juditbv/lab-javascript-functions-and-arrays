@@ -129,16 +129,13 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(wordArr) {
-  let arrWithoutDuplicates = [];
-  for (let i = 0; i < wordArr.length; i++) {
-    if (wordArr.indexOf(wordArr[i]) > -1) {
-      arrWithoutDuplicates.push(wordArr[i]);
-    }
-  }
+  let arrWithoutDuplicates = wordArr.filter((word, index) => {
+    return wordArr.indexOf(word) === index;
+  });
   return arrWithoutDuplicates;
 }
 
-//console.log(uniquifyArray(wordsUnique));
+console.log(uniquifyArray(wordsUnique));
 
 // Iteration #6: Find elements
 const wordsFind = [

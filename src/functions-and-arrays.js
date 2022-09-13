@@ -106,10 +106,31 @@ function averageWordLength(stringsArray) {
   let avgResult = totalSumLetters / stringsArray.length;
   return avgResult.toFixed();
 }
-console.log(averageWordLength(wordsArr));
+//console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(anyMixedArray) {
+  let totalSumItems = 0;
+  if (anyMixedArray == 0) return 0;
+
+  for (let i = 0; i < anyMixedArray.length; i++) {
+    if (typeof anyMixedArray[i] === "number") {
+      totalSumItems += anyMixedArray[i];
+    } else if (typeof anyMixedArray[i] === "string") {
+      totalSumItems += anyMixedArray[i].length;
+    } else if (
+      typeof anyMixedArray[i] === "boolean" ||
+      anyArray[i] === "true"
+    ) {
+      totalSumItems += 1;
+    } else {
+      0;
+    }
+  }
+  return totalSumItems / anyMixedArray.length;
+}
+
+//console.log(avg(mixedArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -126,7 +147,17 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordArr) {
+  let arrWithoutDuplicates = [];
+  for (let i = 0; i < wordArr.length; i++) {
+    if (wordArr.indexOf(wordArr[i]) > -1) {
+      arrWithoutDuplicates.push(wordArr[i]);
+    }
+  }
+  return arrWithoutDuplicates;
+}
+
+//console.log(uniquifyArray(wordsUnique));
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -140,10 +171,21 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(array, wordToSearch) {
+  for (let i = 0; i < array.length; i++) {
+    if (array.indexOf(wordToSearch) !== -1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+//console.log(doesWordExist(wordsFind, "eating"));
 
 // Iteration #7: Count repetition
 const wordsCount = [
+  "machine",
   "machine",
   "matter",
   "subset",
@@ -157,7 +199,17 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, wordToCount) {
+  let totalAppearancesWord = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === wordToCount) {
+      totalAppearancesWord += 1;
+    }
+  }
+  return totalAppearancesWord;
+}
+
+console.log(howManyTimes(wordsCount, "matter"));
 
 // Iteration #8: Bonus
 const matrix = [
